@@ -3,34 +3,4 @@
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-
-  &--add-new {
-    &__body {
-      display: block;
-      border: none;
-      background-color: transparent;
-      text-align: start;
-      cursor: pointer;
-      height: 12.2rem;
-      width: 100%;
-      margin-top: 0.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      background-color: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px #85b4fa;
-      }
-    }
-
-    &__plus {
-      height: 3rem;
-      width: 4rem;
-      color: gray;
-    }
-  }
 }

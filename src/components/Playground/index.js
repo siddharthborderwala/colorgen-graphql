@@ -1,35 +1,35 @@
-import ColorBox from '../ColorBox';
-import namer from 'color-namer';
+import { useSubscription } from '@apollo/client';
 
-import { ReactComponent as PlusIcon } from '../../assets/plus.svg';
+import ColorBox from '../ColorBox';
+import AddColor from '../AddColor';
+import Spinner from '../Spinner';
+import { COLORS_SUBSCRIPTION } from '../../graphql';
+
 import './styles.scss';
 
-const generateName = (color) => {
-  return namer('#' + color, { pick: ['ntc'] }).ntc[0].name;
-};
-
-const colorsList = [
-  'F87171',
-  'FDE68A',
-  'A7F3D0',
-  '2563EB',
-  'A78BFA',
-  'EC4899',
-  'D97706',
-];
-
 const Playground = () => {
+  const { data, loading, error } = useSubscription(COLORS_SUBSCRIPTION);
+
+  if (loading)
+    return (
+      <main className="playground">
+        <Spinner size="2rem" />
+      </main>
+    );
+  else if (error) {
+    return (
+      <main className="playground">
+        <p>Error 💥</p>
+      </main>
+    );
+  }
+
   return (
     <main className="playground">
-      {colorsList.map((color, index) => (
-        <ColorBox key={index} label={generateName(color)} hexCode={color} />
+      {data.colors.map((color, index) => (
+        <ColorBox key={index} color={color} />
       ))}
-      <div className="playground--add-new">
-        <p className="color-box--label">add new color here</p>
-        <button className="playground--add-new__body">
-          <PlusIcon className="playground--add-new__plus" />
-        </button>
-      </div>
+      <AddColor />
     </main>
   );
 };
