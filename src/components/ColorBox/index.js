@@ -8,6 +8,9 @@ import { ReactComponent as TrashIcon } from '../../assets/trash.svg';
 
 import './styles.scss';
 
+/**
+ * Contains and displays a color
+ */
 const ColorBox = ({ color }) => {
   const { code, label, id } = color;
   const [rgbCode, setRgbCode] = useState('');

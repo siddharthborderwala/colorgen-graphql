@@ -1,5 +1,8 @@
 import './styles.scss';
 
+/**
+ * Header of the application
+ */
 const Header = () => {
   return (
     <header className="header">

@@ -7,6 +7,9 @@ import { COLORS_SUBSCRIPTION } from '../../graphql';
 
 import './styles.scss';
 
+/**
+ * Displays a grid of ColorBoxes and AddColor component
+ */
 const Playground = () => {
   const { data, loading, error } = useSubscription(COLORS_SUBSCRIPTION);
 

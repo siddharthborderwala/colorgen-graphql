@@ -3,6 +3,9 @@ import Playground from '../Playground';
 
 import './styles.scss';
 
+/**
+ * Layout of the application
+ */
 const Layout = () => {
   return (
     <div className="layout">

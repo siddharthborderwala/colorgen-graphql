@@ -7,6 +7,9 @@ import generateColor from '../../utils/generateColor';
 import { ReactComponent as PlusIcon } from '../../assets/plus.svg';
 import './styles.scss';
 
+/**
+ * component to add a new color to the db
+ */
 const AddColor = () => {
   const [addColor, { loading, error }] = useMutation(ADD_ONE_COLOR);
 

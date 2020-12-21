@@ -2,6 +2,10 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import Layout from './components/Layout';
 
+/**
+ * Websocket link for apollo client
+ * need to use web-sockets here for enabling subscriptions
+ */
 const wsLink = new WebSocketLink({
   uri: process.env.REACT_APP_SERVER_WSL,
   options: {
@@ -14,6 +18,9 @@ const wsLink = new WebSocketLink({
   },
 });
 
+/**
+ * Apollo Client for graphql functionality
+ */
 const client = new ApolloClient({
   link: wsLink,
   cache: new InMemoryCache({
